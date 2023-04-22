@@ -1,0 +1,82 @@
+* {
+  user-select: none;
+}
+
+body {
+  background-color: #272A2C;
+}
+
+/* write a container class that will center the board on the page vertically and horizontally */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+board {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+row {
+  display: flex;
+  flex-direction: row;
+}
+
+square {
+  float: left;
+  width: 70px;
+  height: 70px;
+  background-color: #C7C7C7;
+}
+
+row:nth-child(odd) square:nth-child(even), row:nth-child(even) square:nth-child(odd) {
+  background-color: #71828F;
+}
+
+row:first-child square:first-child {
+  border-top-left-radius: 4px;
+}
+
+row:first-child square:last-child {
+  border-top-right-radius: 4px;
+}
+
+row:last-child square:first-child {
+  border-bottom-left-radius: 4px;
+}
+
+row:last-child square:last-child {
+  border-bottom-right-radius: 4px;
+}
+
+piece {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  cursor: grab;
+  background-color: transparent !important;
+}
+
+piece:active {
+  cursor: grabbing;
+}
+
+/* write a css media query that would make the squares smaller on a mobile device */
+@media screen and (max-width: 560px) {
+  square {
+    width: 12.5vw;
+    height: 12.5vw;
+  }
+  
+  piece {
+    width: 12.5vw;
+    height: 12.5vw;
+  }
+}
